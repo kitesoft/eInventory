@@ -1,0 +1,84 @@
+unit uReportManager;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, RzLabel, ExtCtrls, RzPanel,commonlib, cxGraphics,
+  cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles,
+  cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit, DB, cxDBData,
+  cxGridLevel, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxClasses, cxGridCustomView, cxGrid, ComCtrls, frxDesgn, frxClass,
+  frxPreview;
+
+type
+  TfrmReportManager = class(TForm)
+    pnAllClients: TRzPanel;
+    rzTopPanel: TRzPanel;
+    pnHeader: TRzPanel;
+    lbHeader: TRzLabel;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    RzPanel1: TRzPanel;
+    RzPanel3: TRzPanel;
+    grdAllInvoices: TcxGrid;
+    cxGridDBTableView1: TcxGridDBTableView;
+    cxGridDBColumn1: TcxGridDBColumn;
+    cxGridDBColumn3: TcxGridDBColumn;
+    cxGridDBTableView1Column11: TcxGridDBColumn;
+    cxGridDBColumn2: TcxGridDBColumn;
+    cxGridDBTableView1Column7: TcxGridDBColumn;
+    cxGridDBColumn5: TcxGridDBColumn;
+    cxGridDBTableView1Column1: TcxGridDBColumn;
+    cxGridDBTableView1Column6: TcxGridDBColumn;
+    cxGridDBColumn6: TcxGridDBColumn;
+    cxGridLevel1: TcxGridLevel;
+    RzPanel2: TRzPanel;
+    frxDesigner1: TfrxDesigner;
+    frxReport1: TfrxReport;
+    PageControl2: TPageControl;
+    TabSheet3: TTabSheet;
+    TabSheet4: TTabSheet;
+    frxPreview1: TfrxPreview;
+    TabSheet5: TTabSheet;
+    pnReportDesigner: TPanel;
+    Panel2: TPanel;
+    btnDesignReport: TButton;
+    btnPreviewReport: TButton;
+    procedure btnDesignReportClick(Sender: TObject);
+    procedure btnPreviewReportClick(Sender: TObject);
+  private
+    FDLLParameter: TDLLParameter;
+    procedure SetDLLParameter(const Value: TDLLParameter);
+    { Private declarations }
+  public
+    { Public declarations }
+    property DLLParameter : TDLLParameter  read FDLLParameter write SetDLLParameter;
+  end;
+
+var
+  frmReportManager: TfrmReportManager;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmReportManager }
+
+procedure TfrmReportManager.SetDLLParameter(const Value: TDLLParameter);
+begin
+  FDLLParameter := Value;
+end;
+
+procedure TfrmReportManager.btnDesignReportClick(Sender: TObject);
+begin
+  frxReport1.DesignReportInPanel(pnReportDesigner);
+end;
+
+procedure TfrmReportManager.btnPreviewReportClick(Sender: TObject);
+begin
+  frxReport1.ShowReport();
+end;
+
+end.

@@ -1,0 +1,341 @@
+object frmEditSupplier: TfrmEditSupplier
+  Left = 512
+  Top = 268
+  Width = 587
+  Height = 287
+  Caption = 'frmEditSupplier'
+  Color = clBtnFace
+  Font.Charset = THAI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnKeyDown = FormKeyDown
+  PixelsPerInch = 96
+  TextHeight = 16
+  object RzPanel1: TRzPanel
+    Left = 0
+    Top = 0
+    Width = 579
+    Height = 260
+    Align = alClient
+    BorderOuter = fsGroove
+    TabOrder = 0
+    DesignSize = (
+      577
+      258)
+    object RzLabel1: TRzLabel
+      Left = 13
+      Top = 16
+      Width = 122
+      Height = 23
+      AutoSize = False
+      Caption = ' '#3619#3627#3633#3626
+      Color = clSilver
+      ParentColor = False
+      Layout = tlCenter
+      BorderColor = clGray
+    end
+    object RzLabel3: TRzLabel
+      Left = 13
+      Top = 40
+      Width = 122
+      Height = 23
+      AutoSize = False
+      Caption = ' '#3619#3627#3633#3626#3607#3633#3656#3623#3652#3611
+      Color = clSilver
+      ParentColor = False
+      Layout = tlCenter
+      BorderColor = clGray
+    end
+    object RzLabel2: TRzLabel
+      Left = 13
+      Top = 64
+      Width = 122
+      Height = 23
+      AutoSize = False
+      Caption = ' '#3594#3639#3656#3629#3605#3633#3623#3649#3607#3609#3592#3635#3627#3609#3656#3634#3618
+      Color = clSilver
+      ParentColor = False
+      Layout = tlCenter
+      BorderColor = clGray
+    end
+    object RzLabel4: TRzLabel
+      Left = 13
+      Top = 92
+      Width = 122
+      Height = 23
+      AutoSize = False
+      Caption = ' '#3594#3639#3656#3629#3612#3641#3657#3605#3636#3604#3605#3656#3629
+      Color = clSilver
+      ParentColor = False
+      Layout = tlCenter
+      BorderColor = clGray
+    end
+    object RzLabel5: TRzLabel
+      Left = 13
+      Top = 116
+      Width = 122
+      Height = 23
+      AutoSize = False
+      Caption = ' '#3605#3635#3649#3627#3609#3656#3591
+      Color = clSilver
+      ParentColor = False
+      Layout = tlCenter
+      BorderColor = clGray
+    end
+    object RzLabel6: TRzLabel
+      Left = 13
+      Top = 140
+      Width = 122
+      Height = 23
+      AutoSize = False
+      Caption = ' '#3648#3610#3629#3619#3660#3617#3639#3629#3606#3639#3629
+      Color = clSilver
+      ParentColor = False
+      Layout = tlCenter
+      BorderColor = clGray
+    end
+    object RzLabel7: TRzLabel
+      Left = 13
+      Top = 164
+      Width = 122
+      Height = 23
+      AutoSize = False
+      Caption = ' '#3648#3610#3629#3619#3660#3650#3607#3619#3624#3633#3614#3607#3660
+      Color = clSilver
+      ParentColor = False
+      Layout = tlCenter
+      BorderColor = clGray
+    end
+    object btnSave: TRzBitBtn
+      Left = 406
+      Top = 226
+      Width = 80
+      Height = 29
+      Anchors = [akRight, akBottom]
+      Caption = #3610#3633#3609#3607#3638#3585
+      Color = clSilver
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      HotTrack = True
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnSaveClick
+      Glyph.Data = {
+        36030000424D3603000000000000360000002800000010000000100000000100
+        18000000000000030000120B0000120B00000000000000000000FF00FFFF00FF
+        FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+        FFFF00FFFF00FFFF00FFFF00FFA15A6292494E92494E92494E92494E92494E92
+        494E92494E92494E92494E92494EA25959D89585B35683FF00FFFF00FF92494E
+        FEBEA3FAB092E8977CFBF7F8FBF7F8FBF7F8FBF7F8FBF7F8FBF7F8F6A381FCB5
+        97FEBEA392494EFF00FFFF00FF92494EFDB9A1F2A68CDB8A74FBF7F8D58673D7
+        9A8EF1E6E7F1E6E7F1E6E7E79378F5AC93FDB9A192494EFF00FFFF00FF92494E
+        FCB49EEA9B86CE7D6DFBF7F8C97A6CD2978EEDDFE1EDDFE1EDDFE1D8836FF0A4
+        8EFCB49E92494EFF00FFFF00FF92494EFAAF9BE19180C26F65FBF7F8FBF7F8FB
+        F7F8ECDDDFECDDDFECDDDFC97365EA9B89FAAF9B92494EFF00FFFF00FF92494E
+        F9AC9BE8988AC97365C97365C97365C97365C97365C97365C97365C97365ED9D
+        8DF9AA9992494EFF00FFFF00FF92494EF9AFA1F9AFA1F9AFA1F9AFA1F9AFA1F9
+        AFA1F9AFA1F9AFA1F9AFA1F9AFA1DF9289F8A59692494EFF00FFFF00FF92494E
+        F8B2A8F9AFA19F60659F60659F60659F60659F60659F60659F60659F6065DF92
+        89F7A49892494EFF00FFFF00FF92494EF8B7AF9F6065FDFCFCFDFCFCFDFCFCFD
+        FCFCFDFCFCFDFCFCFDFCFCFDFCFC9F6065F6A9A092494EFF00FFFF00FF92494E
+        F8BCB79F6065FDFCFCE0B6BBE0B6BBE0B6BBE0B6BBE0B6BBE0B6BBF5ECEE9F60
+        65F6A9A392494EFF00FFFF00FF92494EF8C2BF9F6065FDFCFCF1E6E7F1E6E7F1
+        E6E7F1E6E7F1E6E7F1E6E7F1E6E79F6065F5A9A592494EFF00FFFF00FF92494E
+        F8C8C69F6065FDFCFCE3BEC2E3BEC2E3BEC2E3BEC2E3BEC2E3BEC2EDDFE19F60
+        65F5ACA992494EFF00FFFF00FFB36279F8C8C79F6065FDFCFCE8D3D6E8D3D6E8
+        D3D6E8D3D6E8D3D6E8D3D6ECDDDF9F6065EAA2A2B35684FF00FFFF00FFD23FBA
+        92494E92494E9F60659F60659F60659F60659F60659F60659F60659F60659249
+        4E92494ED52ABBFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+        00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF}
+    end
+    object btnCancel: TRzBitBtn
+      Left = 494
+      Top = 226
+      Width = 80
+      Height = 29
+      Anchors = [akRight, akBottom]
+      Caption = #3618#3585#3648#3621#3636#3585
+      Color = clSilver
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      HotTrack = True
+      ParentFont = False
+      TabOrder = 1
+      OnClick = btnCancelClick
+      Glyph.Data = {
+        36030000424D3603000000000000360000002800000010000000100000000100
+        18000000000000030000120B0000120B00000000000000000000FF00FFFF00FF
+        FF00FFFF00FFBF00E55000BA1000A60000A10000A01000A45000BABF00E5FF00
+        FFFF00FFFF00FFFF00FFFF00FFFF00FFEF00F94000B50000AD0000B50000B200
+        00B00000AD0000AB0000A90000A34000B3EF00F9FF00FFFF00FFFF00FFEF00F9
+        3000B50000C20000C20000BF0000B00000A80000A70000AA0000B10000AF0000
+        AC3000B0EF00F9FF00FFFF00FF4000B70000D00000D00000CD0000B07F00CCFF
+        00FFFF00FFAF00DF4000B40000AE0000B60000B24000B4FF00FFBF00E50000C8
+        0000E10000DD0000DA0000D61000B7CF00ECFF00FFFF00FFFF00FF6000BF0000
+        B30000BD0000AFBF00E55000C50000F30000EF0000BB0000E80000E40000E010
+        00BACF00ECFF00FFFF00FFFF00FF4000B60000C80000C55000BC1000C60000FE
+        0000DE7F00CC1000C10000F20000EE0000EA1000BDCF00ECFF00FFFF00FFAF00
+        DF0000C10000D11000B40000CC0000FF0000CCFF00FFCF00EC1000C50000FC00
+        00F90000F51000C2CF00ECFF00FFFF00FF0000BD0000DE0000BA0000CC0000FF
+        0000CCFF00FFFF00FFCF00EC1000C60000FF0000FF0000FE1000C6CF00ECFF00
+        FF0000C40000EC0000C11000C60000FF0000DFAF00DFFF00FFFF00FFCF00EC10
+        00C60000FF0000FF0000FF1000C67F00CC0000DE0000FB1000C35000C60000FF
+        0000FF4000B9FF00FFFF00FFFF00FFCF00EC1000C60000FF0000FF0000FF0000
+        C60000FF0000FF5000BFBF00E50000D90000FF0000DF7F00CCFF00FFFF00FFFF
+        00FFCF00EC1000C60000FF0000FF0000FF0000FF0000D9BF00E5FF00FF4000B9
+        0000F90000FF0000DF4000B9AF00DFFF00FFFF00FF7F00CC0000C60000FF0000
+        FF0000F94000B9FF00FFFF00FFEF00F93000C00000F90000FF0000FF0000DF00
+        00CC0000CC0000DF0000FF0000FF0000F93000C0EF00F9FF00FFFF00FFFF00FF
+        EF00F94000B90000D90000FF0000FF0000FF0000FF0000FF0000FF0000D94000
+        B9EF00F9FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFBF00E55000BF1000C600
+        00CC0000CC1000C65000C6BF00E5FF00FFFF00FFFF00FFFF00FF}
+    end
+    object RzDBEdit17: TRzDBEdit
+      Left = 138
+      Top = 15
+      Width = 177
+      Height = 22
+      DataSource = dsSupplier
+      DataField = 'SUPCOD'
+      Enabled = False
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      FrameVisible = True
+      ParentFont = False
+      TabOrder = 2
+    end
+    object RzDBEdit1: TRzDBEdit
+      Left = 138
+      Top = 40
+      Width = 177
+      Height = 22
+      DataSource = dsSupplier
+      DataField = 'SUPCDE'
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      FrameVisible = True
+      ParentFont = False
+      TabOrder = 3
+    end
+    object DBCheckBox1: TDBCheckBox
+      Left = 139
+      Top = 191
+      Width = 97
+      Height = 17
+      Caption = #3651#3594#3657#3591#3634#3609
+      DataField = 'SUPACT'
+      DataSource = dsSupplier
+      TabOrder = 4
+      ValueChecked = 'A'
+      ValueUnchecked = 'I'
+    end
+    object RzDBEdit2: TRzDBEdit
+      Left = 138
+      Top = 64
+      Width = 177
+      Height = 22
+      DataSource = dsSupplier
+      DataField = 'SUPNAM'
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      FrameVisible = True
+      ParentFont = False
+      TabOrder = 5
+    end
+    object RzDBEdit3: TRzDBEdit
+      Left = 138
+      Top = 92
+      Width = 382
+      Height = 22
+      DataSource = dsSupplier
+      DataField = 'SUPCON'
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      FrameVisible = True
+      ParentFont = False
+      TabOrder = 6
+    end
+    object RzDBEdit4: TRzDBEdit
+      Left = 138
+      Top = 116
+      Width = 382
+      Height = 22
+      DataSource = dsSupplier
+      DataField = 'SUPPOS'
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      FrameVisible = True
+      ParentFont = False
+      TabOrder = 7
+    end
+    object RzDBEdit5: TRzDBEdit
+      Left = 138
+      Top = 140
+      Width = 382
+      Height = 22
+      DataSource = dsSupplier
+      DataField = 'SUPMOB'
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      FrameVisible = True
+      ParentFont = False
+      TabOrder = 8
+    end
+    object RzDBEdit6: TRzDBEdit
+      Left = 138
+      Top = 164
+      Width = 382
+      Height = 22
+      DataSource = dsSupplier
+      DataField = 'SUPPHO'
+      Font.Charset = THAI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      FrameVisible = True
+      ParentFont = False
+      TabOrder = 9
+    end
+  end
+  object cdsSupplier: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 353
+    Top = 30
+  end
+  object dsSupplier: TDataSource
+    DataSet = cdsSupplier
+    Left = 401
+    Top = 30
+  end
+end

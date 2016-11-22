@@ -1,0 +1,327 @@
+object frmReportManager: TfrmReportManager
+  Left = 403
+  Top = 126
+  Width = 1088
+  Height = 563
+  Caption = 'frmReportManager'
+  Color = clBtnFace
+  Font.Charset = THAI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 16
+  object pnAllClients: TRzPanel
+    Left = 0
+    Top = 0
+    Width = 1080
+    Height = 536
+    Align = alClient
+    BorderOuter = fsPopup
+    TabOrder = 0
+    object rzTopPanel: TRzPanel
+      Left = 1
+      Top = 29
+      Width = 1078
+      Height = 4
+      Align = alTop
+      BorderOuter = fsNone
+      GradientColorStyle = gcsCustom
+      TabOrder = 0
+      VisualStyle = vsGradient
+    end
+    object pnHeader: TRzPanel
+      Left = 1
+      Top = 1
+      Width = 1078
+      Height = 28
+      Align = alTop
+      BorderOuter = fsNone
+      Color = 5832793
+      TabOrder = 1
+      object lbHeader: TRzLabel
+        Left = 8
+        Top = 6
+        Width = 187
+        Height = 16
+        Caption = ' '#3619#3634#3618#3591#3634#3609' ( Reports Manager )'
+        Font.Charset = THAI_CHARSET
+        Font.Color = clWhite
+        Font.Height = -13
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+    end
+    object PageControl1: TPageControl
+      Left = 1
+      Top = 33
+      Width = 1078
+      Height = 502
+      ActivePage = TabSheet2
+      Align = alClient
+      Style = tsFlatButtons
+      TabOrder = 2
+      object TabSheet1: TTabSheet
+        Caption = 'Reports'
+        object RzPanel1: TRzPanel
+          Left = 0
+          Top = 0
+          Width = 1070
+          Height = 168
+          Align = alTop
+          BorderOuter = fsPopup
+          TabOrder = 0
+        end
+        object RzPanel3: TRzPanel
+          Left = 885
+          Top = 168
+          Width = 185
+          Height = 259
+          Align = alRight
+          BorderOuter = fsNone
+          TabOrder = 1
+        end
+        object grdAllInvoices: TcxGrid
+          Left = 0
+          Top = 168
+          Width = 885
+          Height = 259
+          Align = alClient
+          BorderStyle = cxcbsNone
+          TabOrder = 2
+          LookAndFeel.Kind = lfUltraFlat
+          LookAndFeel.NativeStyle = False
+          object cxGridDBTableView1: TcxGridDBTableView
+            DataController.Summary.DefaultGroupSummaryItems = <>
+            DataController.Summary.FooterSummaryItems = <>
+            DataController.Summary.SummaryGroups = <>
+            OptionsData.Deleting = False
+            OptionsData.Editing = False
+            OptionsData.Inserting = False
+            OptionsView.GridLines = glNone
+            OptionsView.GroupByBox = False
+            object cxGridDBColumn1: TcxGridDBColumn
+              Caption = 'No.'
+              DataBinding.FieldName = 'INSITM'
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.Sorting = False
+              Width = 33
+            end
+            object cxGridDBColumn3: TcxGridDBColumn
+              Caption = #3623#3633#3609#3607#3637#3656#3648#3629#3585#3626#3634#3619
+              DataBinding.FieldName = 'INHDTE'
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.Sorting = False
+              Width = 125
+            end
+            object cxGridDBTableView1Column11: TcxGridDBColumn
+              Caption = ' '#3648#3621#3586#3607#3637#3656#3651#3610#3626#3656#3591#3626#3636#3609#3588#3657#3634
+              DataBinding.FieldName = 'INHCDE'
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.Sorting = False
+              Width = 120
+            end
+            object cxGridDBColumn2: TcxGridDBColumn
+              Caption = #3648#3621#3586#3607#3637#3656#3651#3610#3626#3633#3656#3591#3595#3639#3657#3629
+              DataBinding.FieldName = 'INHPOC'
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.Sorting = False
+              Width = 111
+            end
+            object cxGridDBTableView1Column7: TcxGridDBColumn
+              Caption = #3621#3641#3585#3588#3657#3634
+              DataBinding.FieldName = 'SUPNAM'
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.Sorting = False
+              Width = 346
+            end
+            object cxGridDBColumn5: TcxGridDBColumn
+              Caption = #3592#3635#3609#3623#3609#3648#3591#3636#3609
+              DataBinding.FieldName = 'INHGDM'
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.Sorting = False
+              Width = 97
+            end
+            object cxGridDBTableView1Column1: TcxGridDBColumn
+              Caption = #3626#3656#3623#3609#3621#3604
+              DataBinding.FieldName = 'INHDCM'
+              Options.Editing = False
+              Options.Focusing = False
+            end
+            object cxGridDBTableView1Column6: TcxGridDBColumn
+              Caption = #3616#3634#3625#3637
+              DataBinding.FieldName = 'INHVAM'
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.Sorting = False
+              Width = 100
+            end
+            object cxGridDBColumn6: TcxGridDBColumn
+              Caption = #3592#3635#3609#3623#3609#3648#3591#3636#3609#3619#3623#3617
+              DataBinding.FieldName = 'INHNET'
+              Options.Editing = False
+              Options.Filtering = False
+              Options.Focusing = False
+              Options.Sorting = False
+              Width = 109
+            end
+          end
+          object cxGridLevel1: TcxGridLevel
+            GridView = cxGridDBTableView1
+          end
+        end
+        object RzPanel2: TRzPanel
+          Left = 0
+          Top = 427
+          Width = 1070
+          Height = 41
+          Align = alBottom
+          BorderOuter = fsNone
+          TabOrder = 3
+        end
+      end
+      object TabSheet2: TTabSheet
+        Caption = 'Design Report'
+        ImageIndex = 1
+        object PageControl2: TPageControl
+          Left = 0
+          Top = 0
+          Width = 1070
+          Height = 468
+          ActivePage = TabSheet3
+          Align = alClient
+          TabOrder = 0
+          object TabSheet3: TTabSheet
+            Caption = 'TabSheet3'
+            object Panel2: TPanel
+              Left = 0
+              Top = 0
+              Width = 1062
+              Height = 41
+              Align = alTop
+              TabOrder = 0
+              object btnDesignReport: TButton
+                Left = 696
+                Top = 8
+                Width = 169
+                Height = 25
+                Caption = 'btnDesignReport'
+                TabOrder = 0
+                OnClick = btnDesignReportClick
+              end
+              object btnPreviewReport: TButton
+                Left = 520
+                Top = 8
+                Width = 169
+                Height = 25
+                Caption = 'btnDesignReport'
+                TabOrder = 1
+                OnClick = btnPreviewReportClick
+              end
+            end
+          end
+          object TabSheet4: TTabSheet
+            Caption = 'TabSheet4'
+            ImageIndex = 1
+            object frxPreview1: TfrxPreview
+              Left = 0
+              Top = 0
+              Width = 1062
+              Height = 437
+              Align = alClient
+              OutlineVisible = False
+              OutlineWidth = 120
+              ThumbnailVisible = False
+              UseReportHints = True
+            end
+          end
+          object TabSheet5: TTabSheet
+            Caption = 'TabSheet5'
+            ImageIndex = 2
+            object pnReportDesigner: TPanel
+              Left = 0
+              Top = 0
+              Width = 1062
+              Height = 437
+              Align = alClient
+              BevelOuter = bvNone
+              Caption = 'pnReportDesigner'
+              TabOrder = 0
+            end
+          end
+        end
+      end
+    end
+  end
+  object frxDesigner1: TfrxDesigner
+    DefaultScriptLanguage = 'PascalScript'
+    DefaultFont.Charset = DEFAULT_CHARSET
+    DefaultFont.Color = clWindowText
+    DefaultFont.Height = -13
+    DefaultFont.Name = 'Arial'
+    DefaultFont.Style = []
+    DefaultLeftMargin = 10.000000000000000000
+    DefaultRightMargin = 10.000000000000000000
+    DefaultTopMargin = 10.000000000000000000
+    DefaultBottomMargin = 10.000000000000000000
+    DefaultPaperSize = 9
+    DefaultOrientation = poPortrait
+    TemplatesExt = 'fr3'
+    Restrictions = []
+    RTLLanguage = False
+    MemoParentFont = True
+    Left = 285
+    Top = 255
+  end
+  object frxReport1: TfrxReport
+    Version = '4.12'
+    DotMatrixReport = False
+    IniFile = '\Software\Fast Reports'
+    Preview = frxPreview1
+    PreviewOptions.Buttons = [pbPrint, pbLoad, pbSave, pbExport, pbZoom, pbFind, pbOutline, pbPageSetup, pbTools, pbEdit, pbNavigator, pbExportQuick]
+    PreviewOptions.Zoom = 1.000000000000000000
+    PrintOptions.Printer = 'Default'
+    PrintOptions.PrintOnSheet = 0
+    ReportOptions.CreateDate = 41692.381278229160000000
+    ReportOptions.LastChange = 41692.381278229160000000
+    ScriptLanguage = 'PascalScript'
+    ScriptText.Strings = (
+      'begin'
+      ''
+      'end.')
+    Left = 165
+    Top = 135
+    Datasets = <>
+    Variables = <>
+    Style = <>
+    object Data: TfrxDataPage
+      Height = 1000.000000000000000000
+      Width = 1000.000000000000000000
+    end
+    object Page1: TfrxReportPage
+      PaperWidth = 215.900000000000000000
+      PaperHeight = 279.400000000000000000
+      PaperSize = 1
+      LeftMargin = 10.000000000000000000
+      RightMargin = 10.000000000000000000
+      TopMargin = 10.000000000000000000
+      BottomMargin = 10.000000000000000000
+    end
+  end
+end

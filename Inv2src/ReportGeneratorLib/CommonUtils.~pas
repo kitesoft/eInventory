@@ -1,0 +1,47 @@
+{ *********************************************************************** }
+{                                                                         }
+{ The Bantung Software  Runtime Library                                   }
+{ Bantung - Common Utility Library                                 }
+{                                                                         }
+{ Copyright (c) 2012 Bantung Software Co., Ltd.                           }
+{                                                                         }
+{ *********************************************************************** }
+unit CommonUtils;
+
+interface
+uses
+  Windows, Messages,Classes, Forms,CommonLIB,MyAccess;
+
+type
+  TShowWindowType = (swNone, swModal, swNomal);
+
+
+  function ShowReportGenerator(
+    _MainApp: TApplication; _DBConn: TMyConnection;
+    _Type: TShowWindowType; _Parameter: TDLLParameter;DefaultValue:TList;AutoReport:boolean): TForm; stdcall;
+
+//  function ShowReportX(
+//    _MainApp: TApplication; _DBConn: TMyConnection;
+//    _Type: TShowWindowType; _Parameter: TDLLParameter;DefaultValue:TList): TForm; stdcall;
+
+
+implementation
+
+
+const
+  RGLib = 'RGLib.dll';
+ // RGLibX = 'RGLibX.dll';
+
+
+
+  function ShowReportGenerator(
+    _MainApp: TApplication; _DBConn: TMyConnection;
+    _Type: TShowWindowType; _Parameter: TDLLParameter;DefaultValue:TList;AutoReport:boolean):TForm; external RGLib name 'Execute';
+
+  //function ShowReportX(
+  //  _MainApp: TApplication; _DBConn: TMyConnection;
+  //  _Type: TShowWindowType; _Parameter: TDLLParameter;DefaultValue:TList):TForm; external RGLibX name 'Execute';
+
+
+
+end.

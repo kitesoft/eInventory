@@ -1,0 +1,160 @@
+unit uMain;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, DB, DBClient, ComCtrls,FmxUtils;
+
+type
+  TfrmMain = class(TForm)
+    Panel1: TPanel;
+    btnDeploy: TButton;
+    ClientDataSet1: TClientDataSet;
+    dlProgress: TProgressBar;
+    edSource: TEdit;
+    edDest: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    lbCaption: TLabel;
+    procedure btnDeployClick(Sender: TObject);
+  private
+    { Private declarations }
+    procedure CopyFile(const FileName, DestName: TFileName);
+  public
+    { Public declarations }
+  end;
+
+var
+  frmMain: TfrmMain;
+
+implementation
+
+uses STDLIB;
+
+{$R *.dfm}
+
+procedure TfrmMain.btnDeployClick(Sender: TObject);
+var cdsTemp : TClientDataSet;
+begin
+
+  if Trim(edDest.Text)='' then
+  begin
+    Application.MessageBox(pchar('Destination is empty!!!'),pchar('Warning'),MB_OK or MB_ICONWARNING);
+    Exit;
+  end;
+
+  cdsTemp:=TClientDataSet.Create(nil);
+  cdsTemp.Data := GetDataSet('select * from CTSTTMNU');
+  if cdsTemp.RecordCount>0 then
+  begin
+    cdsTemp.First;
+    while not cdsTemp.eof do
+    begin
+      if trim(cdsTemp.fieldbyname('APP_NAME').AsString)<>'' then
+      begin
+        CopyFile(ExtractFilePath(Application.ExeName)+cdsTemp.fieldbyname('APP_NAME').AsString,edDest.Text+'\'+cdsTemp.fieldbyname('APP_NAME').AsString);
+        lbCaption.Caption:=trim(cdsTemp.fieldbyname('APP_NAME').AsString);
+      end;
+      cdsTemp.next;
+      Application.ProcessMessages;
+    end;
+
+  end;
+
+  lbCaption.Caption:='inv2.exe';
+  CopyFile(ExtractFilePath(Application.ExeName)+'inv2.exe',edDest.Text+'\'+'inv2.exe');
+  Application.ProcessMessages;
+
+  lbCaption.Caption:='DevCore.dll';
+  CopyFile(ExtractFilePath(Application.ExeName)+'DevCore.dll',edDest.Text+'\'+'DevCore.dll');
+  Application.ProcessMessages;
+
+  lbCaption.Caption:='RGLib.dll';
+  CopyFile(ExtractFilePath(Application.ExeName)+'RGLib.dll',edDest.Text+'\'+'RGLib.dll');
+  Application.ProcessMessages;
+
+  lbCaption.Caption:='nsec.dll';
+  CopyFile(ExtractFilePath(Application.ExeName)+'nsec.dll',edDest.Text+'\'+'nsec.dll');
+  Application.ProcessMessages;
+  
+  lbCaption.Caption:='stdfunc.dll';
+  CopyFile(ExtractFilePath(Application.ExeName)+'stdfunc.dll',edDest.Text+'\'+'stdfunc.dll');
+  Application.ProcessMessages;
+
+  lbCaption.Caption:='midas.dll';
+  CopyFile(ExtractFilePath(Application.ExeName)+'midas.dll',edDest.Text+'\'+'midas.dll');
+  Application.ProcessMessages;
+
+  lbCaption.Caption:='dbexpmda.dll';
+  CopyFile(ExtractFilePath(Application.ExeName)+'dbexpmda.dll',edDest.Text+'\'+'dbexpmda.dll');
+  Application.ProcessMessages;
+
+  ShowMessage('finished.');
+
+end;
+
+function GetFileSize(const FileName: string): LongInt;
+var
+  SearchRec: TSearchRec;
+begin
+  try
+    if FindFirst(ExpandFileName(FileName), faAnyFile, SearchRec) = 0 then
+      Result := SearchRec.Size
+    else Result := -1;
+  finally
+    SysUtils.FindClose(SearchRec);
+  end;
+end;
+
+
+procedure TfrmMain.CopyFile(const FileName, DestName: TFileName);
+var
+  CopyBuffer: Pointer; { buffer for copying }
+  TimeStamp, BytesCopied: Longint;
+  Source, Dest: Integer; { handles }
+  Destination: TFileName; { holder for expanded destination name }
+  FileS_:real;
+const
+  ChunkSize: Longint = 4096;//8192; { copy in 8K chunks }
+begin;
+  fileS_:=(getFileSize(FileName)/4096);
+  dlProgress.Min:=0;
+  dlProgress.Max:=trunc(files_);
+  dlProgress.Position:=0;
+
+  Destination := ExpandFileName(DestName); { expand the destination path }
+  if HasAttr(Destination, faDirectory) then { if destination is a directory... }
+    Destination := Destination + '\' + ExtractFileName(FileName); { ...clone file name }
+  TimeStamp := FileAge(FileName); { get source's time stamp }
+  GetMem(CopyBuffer, ChunkSize); { allocate the buffer }
+  try
+    Source := FileOpen(FileName, fmShareDenyWrite); { open source file }
+//    if Source < 0 then raise EFOpenError.Create(FmtLoadStr(SFOpenError, [FileName]));
+    try
+      Dest := FileCreate(Destination); { create output file; overwrite existing }
+     // if Dest < 0 then raise EFCreateError.Create(FmtLoadStr(SFCreateError, [Destination]));
+      try
+        repeat
+          BytesCopied := FileRead(Source, CopyBuffer^, ChunkSize); { read chunk }
+          if BytesCopied > 0 then { if we read anything... }
+          begin
+            Application.ProcessMessages;
+            dlProgress.StepBy(1);
+            FileWrite(Dest, CopyBuffer^, BytesCopied); { ...write chunk }
+            Application.ProcessMessages;
+          end
+        until BytesCopied < ChunkSize; { until we run out of chunks }
+      finally
+        FileClose(Dest); { close the destination file }
+      end;
+    finally
+      FileClose(Source); { close the source file }
+    end;
+  finally
+    FreeMem(CopyBuffer, ChunkSize); { free the buffer }
+    
+  end;
+end;
+
+end.

@@ -1,0 +1,24 @@
+unit SearchPOforReceiveFrm;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TfrmSearchPOforReceive = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmSearchPOforReceive: TfrmSearchPOforReceive;
+
+implementation
+
+{$R *.dfm}
+
+end.

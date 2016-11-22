@@ -1,0 +1,3 @@
+<Configuration>
+  <AppConfig ID="120001" APP_NAME="Siam Enterprise Software Dev Group" APP_PATH="C:\Programfiles\UITSoftware\Rajavithi" APP_DBSERVERIP="10.0.2.101" APP_DBUSERNAME="joni" APP_PASSWD="123456" APP_DBNAME="inv2_db" APP_PORT="3306"/>
+</Configuration>

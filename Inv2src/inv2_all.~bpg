@@ -1,0 +1,99 @@
+#------------------------------------------------------------------------------
+VERSION = BWS.01
+#------------------------------------------------------------------------------
+!ifndef ROOT
+ROOT = $(MAKEDIR)\..
+!endif
+#------------------------------------------------------------------------------
+MAKE = $(ROOT)\bin\make.exe -$(MAKEFLAGS) -f$**
+DCC = $(ROOT)\bin\dcc32.exe $**
+BRCC = $(ROOT)\bin\brcc32.exe $**
+#------------------------------------------------------------------------------
+PROJECTS = inv2.exe nsec.dll FrontReceive.dll SysSetting.dll Contract.dll \
+  seachutils.dll stock.dll purchase.dll receive.dll Config.exe RGLib.dll \
+  PurchaseReq.dll Finance.dll Issue.dll SysConfig.dll IssueReq.dll Cutt.dll \
+  Budget.dll quotation.dll invoice.dll customer.dll DevCore.dll SampleDevCore.exe \
+  DeployTool.exe AdmTools.dll Patcher.exe
+#------------------------------------------------------------------------------
+default: $(PROJECTS)
+#------------------------------------------------------------------------------
+
+inv2.exe: MainApplication\inv2.dpr
+  $(DCC)
+
+nsec.dll: nsec\nsec.dpr
+  $(DCC)
+
+FrontReceive.dll: FrontReceive\FrontReceive.dpr
+  $(DCC)
+
+SysSetting.dll: SystemSettting\SysSetting.dpr
+  $(DCC)
+
+Contract.dll: Conntract\Contract.dpr
+  $(DCC)
+
+seachutils.dll: SearchUtils\seachutils.dpr
+  $(DCC)
+
+stock.dll: Stock\stock.dpr
+  $(DCC)
+
+purchase.dll: Purchase\purchase.dpr
+  $(DCC)
+
+receive.dll: Receive\receive.dpr
+  $(DCC)
+
+Config.exe: Config\Config.dpr
+  $(DCC)
+
+RGLib.dll: ReportGeneratorLib\RGLib.dpr
+  $(DCC)
+
+PurchaseReq.dll: PurchaseRequest\PurchaseReq.dpr
+  $(DCC)
+
+Finance.dll: Finance\Finance.dpr
+  $(DCC)
+
+Issue.dll: Issue\Issue.dpr
+  $(DCC)
+
+SysConfig.dll: SystemConfig\SysConfig.dpr
+  $(DCC)
+
+IssueReq.dll: IssueReq\IssueReq.dpr
+  $(DCC)
+
+Cutt.dll: Cutt\Cutt.dpr
+  $(DCC)
+
+Budget.dll: Budget\Budget.dpr
+  $(DCC)
+
+quotation.dll: Quotation\quotation.dpr
+  $(DCC)
+
+invoice.dll: Invoices\invoice.dpr
+  $(DCC)
+
+customer.dll: Customers\customer.dpr
+  $(DCC)
+
+DevCore.dll: DevCore\DevCore.dpr
+  $(DCC)
+
+SampleDevCore.exe: SampleDevCore\SampleDevCore.dpr
+  $(DCC)
+
+DeployTool.exe: DeployTool\DeployTool.dpr
+  $(DCC)
+
+AdmTools.dll: AdminTools\AdmTools.dpr
+  $(DCC)
+
+Patcher.exe: Patcher\Patcher.dpr
+  $(DCC)
+
+

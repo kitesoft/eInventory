@@ -1,0 +1,215 @@
+library RGLib;
+
+{ Important note about DLL memory management: ShareMem must be the
+  first unit in your library's USES clause AND your project's (select
+  Project-View Source) USES clause if your DLL exports any procedures or
+  functions that pass strings as parameters or function results. This
+  applies to all strings passed to and from your DLL--even those that
+  are nested in records and classes. ShareMem is the interface unit to
+  the BORLNDMM.DLL shared memory manager, which must be deployed along
+  with your DLL. To avoid using BORLNDMM.DLL, pass string information
+  using PChar or ShortString parameters. }
+
+uses
+  DBClient,
+  DB,
+  SqlExpr,
+  SysUtils,
+  Classes,
+  dxCore,
+  Windows,
+  Forms,
+  MyAccess,
+  JvUIB,
+  CommonLIB in '..\LIB\CommonLIB.pas',
+  uCiaXml in '..\LIB\uCiaXml.pas',
+  CommonUtils in '..\LIB\CommonUtils.pas',
+  SamSTDLIB in '..\LIB\SamSTDLIB.pas',
+  STDLIB in '..\STDLIB\STDLIB.pas',
+  SampleFrm in 'SampleFrm.pas' {frmSample},
+  GenReportFrm in 'GenReportFrm.pas' {frmGenReport};
+
+var
+   DLLApp: TApplication;
+   DLLScr: TScreen;
+   DLLAppHandle: THandle;
+
+{$R *.res}
+
+
+
+type
+
+  TShowWindowType = (swNone, swModal, swNormal);
+
+
+function Execute(_MainApp: TApplication; _DBConn: TMyConnection;
+  _Type: TShowWindowType; _Parameter: TDLLParameter;DefaultValue:TList;AutoReport:boolean;RptGroup:string): TForm; stdcall;
+begin
+
+  Application := _MainApp;
+
+   {
+  Result := TfrmSample.Create(Application.MainForm);
+
+
+      Result.FormStyle                := fsNormal;
+      Result.WindowState              := wsNormal;
+
+
+
+      Result.ShowModal;
+
+
+      FreeAndNil(Result);
+      }
+
+
+
+
+
+  Result := TfrmGenReport.Create(Application.MainForm);
+    //  Result.FormStyle := fsNormal;
+    //  Result.WindowState := wsNormal;
+
+
+
+     // Result.ShowModal;
+     // FreeAndNil(Result);
+
+
+
+  if initConnection(TfrmGenReport(Result).Conn)
+  then
+  begin
+
+      TfrmGenReport(Result).RptGroup:=RptGroup;
+      TfrmGenReport(Result).AutoReport := AutoReport;
+      TfrmGenReport(Result).reportCode:=_Parameter.ReportCode;
+      if DefaultValue<>nil then
+      TfrmGenReport(Result).defaultValue:=DefaultValue;
+
+      TfrmGenReport(Result).UserID:=_Parameter.UserID;
+      TfrmGenReport(Result).Branch:=_Parameter.Branch;
+
+      TfrmGenReport(Result).Company_Name:=_Parameter.CompanyName;
+      TfrmGenReport(Result).Company_Addr1:=_Parameter.CompanyAddr1;
+      TfrmGenReport(Result).Company_Addr2:=_Parameter.CompanyAddr2;
+      TfrmGenReport(Result).Company_Tel:=_Parameter.CompanyTel;
+      TfrmGenReport(Result).Company_Fax:=_Parameter.CompanyFax;
+
+
+
+      if AutoReport then
+      begin
+       TfrmGenReport(Result).BorderStyle:=bsNone;
+      end;
+
+
+
+
+      Result.FormStyle := fsNormal;
+      Result.WindowState := wsNormal;
+
+
+
+      Result.ShowModal;
+      FreeAndNil(Result);
+
+
+  end;
+
+
+  
+  
+end;
+
+
+(*
+
+function GenReport(_MainApp: TApplication;AParent:TWinControl; _Parameter: TDLLParam;_DBConn:TSocketConnection): TForm;export; stdcall;
+
+begin
+
+ if DllApplication=nil then
+ begin
+   DllApplication:=Application;
+   Application:=_MainApp;
+ end;
+
+
+
+
+  // Load Deposit Reconcile
+ // if _Parameter.Param1='DEP001' then
+    if not Assigned(frmGenReport) then
+    begin
+        frmGenReport := TfrmGenReport.Create(Application);
+
+//        frmGenReport.SockCon.Connected:=false;
+//        initSockConn(frmGenReport.SockCon);
+
+        frmGenReport.FormStyle := fsNormal;
+        frmGenReport.KeyPreview:=true;
+        //frmGenReport._Params:= 'M02';//_Parameter.Param1;   // report code
+        frmGenReport.reportCode:=_Parameter.Param1;// 'M02';//_Parameter.Param1;   // report code
+//        frmGenReport.reportTitle:=_Parameter.
+
+        frmGenReport.UserID:=_Parameter.UserID;
+        frmGenReport.Branch:=_Parameter.Branch;
+        frmGenReport.PDM:=_Parameter.PDM;
+        frmGenReport.PDT:=_Parameter.PDT;
+        frmGenReport.WorkStation:=_Parameter.WorkStation;
+        frmGenReport.ShowModal;
+        FreeAndNil(frmGenReport);
+    end;
+
+   Result := frmGenReport;
+end;
+
+
+
+
+*)
+procedure RestoreAppAndScr;
+begin
+   Screen := DLLScr;
+   Application := DLLApp;
+end;
+
+//DLL Entry Point
+procedure DLLEntryPoint(dwReason: DWORD); stdcall; //register; //stdcall;
+begin
+   case dwReason of
+      DLL_PROCESS_ATTACH: //1
+      begin
+         DLLAppHandle := Application.Handle;
+         DLLApp := Application;
+         DLLScr := Screen;
+      end;
+      DLL_PROCESS_DETACH: //3
+      begin
+         //DestroyModeLessForm;
+         //DestroyMDIChildForm;
+
+         RestoreAppAndScr;
+         Application.Handle := DLLAppHandle;
+      end;
+      DLL_THREAD_ATTACH : {ShowMessage('Thread Attach')};  //2
+      DLL_THREAD_DETACH : {ShowMessage('Thread Detach')};  //0
+   end;
+end;
+
+exports
+  dxInitialize,
+  dxFinalize,
+execute,
+DLLEntryPoint;
+// GenReport;
+
+
+
+
+begin
+
+end.

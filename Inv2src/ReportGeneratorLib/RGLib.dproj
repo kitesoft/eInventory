@@ -1,0 +1,113 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{C686C2EE-DFA0-4220-AE11-95AD571B980C}</ProjectGuid>
+			<MainSource>RGLib.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.0</ProjectVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UsePackage>rtl;vcl;vclx;vclactnband;xmlrtl;vclimg;dbrtl;vcldb;bdertl;vcltouch;dsnap;dsnapcon;TeeUI;TeeDB;Tee;IndyCore;IndySystem;IndyProtocols;inet;intrawebdb_100_140;Intraweb_100_140;VclSmp;vclie;websnap;webdsnap;inetdb;inetdbbde;inetdbxpress;soaprtl;vclribbon;dbexpress;DbxCommonDriver;DataSnapIndy10ServerTransport;DataSnapProviderClient;DbxClientDriver;DataSnapServer;DBXInterBaseDriver;DBXMySQLDriver;dbxcds;DBXFirebirdDriver;DBXSybaseASEDriver;DBXSybaseASADriver;DBXOracleDriver;DBXMSSQLDriver;DBXInformixDriver;DBXDb2Driver;JclDeveloperTools;Jcl;JclVcl;JclContainers;JvCore;JvSystem;JvStdCtrls;JvAppFrm;JvBands;JvDB;JvDlgs;JvBDE;JvControls;JvCmp;JvCrypt;JvCustom;JvDocking;JvDotNetCtrls;JvGlobus;JvHMI;JvJans;JvManagedThreads;JvMM;JvNet;JvPageComps;JvPascalInterpreter;JvPluginSystem;JvPrintPreview;JvRuntimeDesign;JvTimeFramework;JvWizards;JvXPCtrls;dxCoreD14;cxLibraryD14;dxBarD14;dxBarExtItemsD14;dxdbtrD14;dxDockingD14;cxEditorsD14;cxBarEditItemD14;dxRibbonD14;dxLayoutControlD14;dxBarDBNavD14;dxBarExtDBItemsD14;dxmdsD14;dxtrmdD14;dxNavBarD14;dxorgcD14;dxdborD14;dxTabbedMDID14;cxPageControlD14;dxThemeD14;dxGDIPlusD14;dxComnD14;cxPageControldxBarPopupMenuD14;cxPivotGridD14;dxPSCoreD14;dxPScxCommonD14;dxPScxExtCommonD14;dxPSdxLCLnkD14;dxPScxPCProdD14;dxPScxPivotGridLnkD14;dxPSdxDBOCLnkD14;dxPSdxDBTVLnkD14;dxPSdxFCLnkD14;dxPScxGridLnkD14;dxPSdxOCLnkD14;dxPSLnksD14;dxPsPrVwAdvD14;dxPSPrVwRibbonD14;cxPivotGridChartD14;cxGridD14;dxPScxTLLnkD14;cxTreeListD14;cxTreeListdxBarPopupMenuD14;dxPScxSchedulerLnkD14;cxSchedulerGridD14;cxSchedulerD14;dcldxSkinsCoreD14;dxSkinsCoreD14;dxSkinscxPCPainterD14;dxSkinscxSchedulerPainterD14;dxSkinsdxDLPainterD14;dxSkinsdxNavBarPainterD14;dxSkinsdxRibbonPainterD14;dxSkinBlackD14;dxSkinBlueD14;dxSkinBlueprintD14;dxSkinCaramelD14;dxSkinCoffeeD14;dxSkinDarkRoomD14;dxSkinDarkSideD14;dxSkinDevExpressDarkStyleD14;dxSkinDevExpressStyleD14;dxSkinFoggyD14;dxSkinGlassOceansD14;dxSkinHighContrastD14;dxSkiniMaginaryD14;dxSkinLilianD14;dxSkinLiquidSkyD14;dxSkinLondonLiquidSkyD14;dxSkinMcSkinD14;dxSkinMoneyTwinsD14;dxSkinOffice2007BlackD14;dxSkinOffice2007BlueD14;dxSkinOffice2007GreenD14;dxSkinOffice2007PinkD14;dxSkinOffice2007SilverD14;dxSkinOffice2010BlackD14;dxSkinOffice2010BlueD14;dxSkinOffice2010SilverD14;dxSkinPumpkinD14;dxSkinsdxBarPainterD14;dxSkinSevenClassicD14;dxSkinSevenD14;dxSkinSharpD14;dxSkinSharpPlusD14;dxSkinSilverD14;dxSkinSpringTimeD14;dxSkinStardustD14;dxSkinSummer2008D14;dxSkinTheAsphaltWorldD14;dxSkinValentineD14;dxSkinVS2010D14;dxSkinWhiteprintD14;dxSkinXmas2008BlueD14;dxSpellCheckerD14;dxPScxSSLnkD14;cxSpreadSheetD14;dxPScxVGridLnkD14;cxVerticalGridD14;dxFlowChartD14;dacvcl140;dac140;crcontrols140;mydacvcl140;mydac140;RaizeComponentsVcl;RaizeComponentsVclDb;EhLib140;vcldbx;dclRBE1414;rbCIDE1414;rbIDE1414;rbRCL1414;rbBDE1414;rbUSERDesign1414;rbUSER1414;rbDIDE1414;rbDAD1414;dclRBBDE1414;rbDBDE1414;rbDB1414;dclRBADO1414;rbADO1414;adortl;dclRBDBE1414;rbDBE1414;ibxpress;dclRBIBE1414;rbIBE1414;rbRIDE1414;rbRAP1414;frx14;fs14;fsADO14;fsIBX14;dcldbxsda140;G114_R140;SynEdit_R2010;DCPdelphiXE;vclshlctrls;DevLIB_D14;frxADO14;frxBDE14;frxDBX14;frxe14;fsBDE14;fsDB14;mysqlmon140;frxTee14;frxIBX14;fsTee14;frxDB14</DCC_UsePackage>
+			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;$(DCC_UnitAlias)</DCC_UnitAlias>
+			<DCC_DependencyCheckOutputName>..\..\sample\RGLib.dll</DCC_DependencyCheckOutputName>
+			<DCC_ExeOutput>..\..\sample</DCC_ExeOutput>
+			<GenDll>true</GenDll>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_Platform>x86</DCC_Platform>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="RGLib.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="..\LIB\uCiaXml.pas"/>
+			<DCCReference Include="..\LIB\CommonLIB.pas"/>
+			<DCCReference Include="..\LIB\CommonUtils.pas"/>
+			<DCCReference Include="GenReportFrm.pas">
+				<Form>frmGenReport</Form>
+			</DCCReference>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">RGLib.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">69</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1033</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">bantung</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">www.bantung.com</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.0.0.69</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\Bin\dclib140.bpl">Embarcadero InterBase Express Components</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dclcxPivotGridOLAPD14.bpl">ExpressPivotGrid 2 OLAP by Developer Express Inc.</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\5.0\Bpl\dcldxPSDBTeeChartD14.bpl">ExpressPrinting System ReportLink for DBTeeChart by Developer Express Inc.</Excluded_Packages>
+					</Excluded_Packages>
+				</Delphi.Personality>
+				<ModelSupport>False</ModelSupport>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>
