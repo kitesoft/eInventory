@@ -45,4 +45,4 @@ Upgrade 0.57.6.22 [22-06-2014]
 link http://www.siamdev.org/?wpdmact=process&did=OS5ob3RsaW5r 
 
 
-<img src="freenode.jpg" alt="Line Group ID" height="42" width="42">
+<img src="freenode.jpg" alt="Line Group ID" height="100" width="100">
