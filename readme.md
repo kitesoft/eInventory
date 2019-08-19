@@ -46,3 +46,8 @@ link http://www.siamdev.org/?wpdmact=process&did=OS5ob3RsaW5r
 
 
 <img src="freenode.jpg" alt="Line Group ID" height="128" width="128">
+
+
+Special Thank.
+TextBath Function from
+https://sites.google.com/site/neovember/textbaht
